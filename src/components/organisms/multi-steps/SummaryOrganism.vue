@@ -11,7 +11,7 @@
         <TheText>Name John</TheText>
         <div class="space-x-5">
             <TheButton variation="outline">Back</TheButton>
-            <TheButton>Buy</TheButton>
+            <TheButton >Buy</TheButton>
         </div>
     </section>
 </template>

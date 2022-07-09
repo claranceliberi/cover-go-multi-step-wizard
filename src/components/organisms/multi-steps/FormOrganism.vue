@@ -6,6 +6,7 @@
                 <TheHeader>Tell us about your self</TheHeader>
                 <InputMolecule placeholder="John Doe">Name</InputMolecule>
                 <InputMolecule placeholder="30" type="number">Age</InputMolecule>
+                <SelectMolecule placeholder="select country" :options="radioOptions">where do you live</SelectMolecule>
                 <RadioMolecule :options="radioOptions" name="option"/>
             </div>
 
@@ -16,7 +17,7 @@
 
                 <div class="space-x-5">
                     <TheButton variation="outline">Back</TheButton>
-                    <TheButton>Next</TheButton>
+                    <TheButton >Next</TheButton>
                 </div>
             </div>
            </div>
@@ -27,13 +28,14 @@
 <script setup lang="ts">
 import TheHeader from '../../atoms/text/TheHeader.vue';
 import InputMolecule from '../../molecules/input/InputMolecule.vue';
+import SelectMolecule from '../../molecules/input/SelectMolecule.vue';
 import RadioMolecule from '../../molecules/input/RadioMolecule.vue';
 import TheButton from '../../atoms/TheButton.vue';
+
 
 const radioOptions:selectOptionType[] = [
     {value:"Standard",label:"Standard"},
     {value:"Premium",label:"Premium"},
-
 ]
 
 </script>

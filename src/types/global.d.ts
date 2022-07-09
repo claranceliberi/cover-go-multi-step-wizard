@@ -7,4 +7,7 @@ declare global {
         label:string,
     }
 
+    type pageType = 'start' | 'form' | 'summary' | 'error';
+    
+
 }
