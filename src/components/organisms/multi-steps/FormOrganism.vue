@@ -17,7 +17,7 @@
 
                 <div class="space-x-5">
                     <TheButton variation="outline">Back</TheButton>
-                    <TheButton >Next</TheButton>
+                    <TheButton v-step="'error'">Next</TheButton>
                 </div>
             </div>
            </div>
@@ -31,12 +31,14 @@ import InputMolecule from '../../molecules/input/InputMolecule.vue';
 import SelectMolecule from '../../molecules/input/SelectMolecule.vue';
 import RadioMolecule from '../../molecules/input/RadioMolecule.vue';
 import TheButton from '../../atoms/TheButton.vue';
+import {vStep} from '../../../directives/step'
 
 
 const radioOptions:selectOptionType[] = [
     {value:"Standard",label:"Standard"},
     {value:"Premium",label:"Premium"},
 ]
+
 
 </script>
 

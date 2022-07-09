@@ -1,6 +1,6 @@
 <template>
     <article class="text-gray-900 flex justify-center flex-wrap mt-20">
-        <component :is="_component" v-step="'error'" @step="step"></component>
+        <component :is="_component" @step="step"></component>
     </article>
 </template>
 
@@ -10,7 +10,7 @@ import FormOrganism from '../components/organisms/multi-steps/FormOrganism.vue';
 import SummaryOrganism from '../components/organisms/multi-steps/SummaryOrganism.vue';
 import { ref, computed } from 'vue';
 import ErrorOrganism from '../components/organisms/multi-steps/ErrorOrganism.vue';
-import {vStep} from '../directives/step'
+
 
 const current = ref<pageType>('form');
 
@@ -30,7 +30,7 @@ const _component = computed(() => {
 });
 
 function step(v: pageType) {
-    console.log('stepping v', v);
+    console.log('stepping v',v.);
 }
 
 </script>

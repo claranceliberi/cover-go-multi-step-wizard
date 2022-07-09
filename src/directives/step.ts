@@ -6,11 +6,12 @@ function event<T>(name:string,data:T){
 }
 
 export const vStep:Directive<HTMLButtonElement,pageType> = {
-    created(el, binding) {
+    created(el, binding,vnode) {
         el.addEventListener('click',
         // B
         () => {
-            el.dispatchEvent(event('step', binding.value))
+            const element = binding.instance?.$el;
+            element.dispatchEvent(event('step', binding.value))
         })
     },
     unmounted(el) {
