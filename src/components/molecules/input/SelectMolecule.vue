@@ -1,6 +1,8 @@
 <template>
     <div>
-        <TheLabel> {{props.label}} </TheLabel>
+        <TheLabel>
+            <slot></slot>
+        </TheLabel>
         <TheSelect v-bind="props" @update:model-value="emits('update:modelValue',e)"/>
     </div>
 </template>
@@ -9,15 +11,22 @@
 import TheSelect from '../../atoms/input/TheSelect.vue';
 import TheLabel from '../../atoms/text/TheLabel.vue';
 
-    interface IProps extends IPropsSelect {
-        label:string,
+
+    interface IPropsSelect {
+        type:string,
+        placeholder:string,
+        modelValue:string | number,
+        name:string,
+        id:string,
+        options:selectOptionType[],
+        [key:string]:any,
     }
 
-     type emitsTypes = {
+    type emitsTypes = {
         (e:'update:modelValue',value:string):void,
     }
 
-    const props = withDefaults(defineProps<IProps>(),{
+    const props = withDefaults(defineProps<IPropsSelect>(),{
         type:'text',
     });
 

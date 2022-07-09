@@ -25,8 +25,8 @@
 
     const classes =  {
             "w-full":props.fullWidth,
-            "bg-slate-900 text-white":props.variation==='fill',
-            "border-2 border-slate-900 text-slate-900":props.variation==='outline',
+            "bg-slate-900 text-white hover:bg-slate-800":props.variation==='fill',
+            "border-2 border-slate-900 text-slate-900 hover:bg-slate-200":props.variation==='outline',
         }
     
 
