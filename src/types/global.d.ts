@@ -8,6 +8,5 @@ declare global {
     }
 
     type pageType = 'start' | 'form' | 'summary' | 'error';
-    
 
 }

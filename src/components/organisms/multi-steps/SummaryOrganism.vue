@@ -10,8 +10,8 @@
         <TheText>Premium 500KHD</TheText>
         <TheText>Name John</TheText>
         <div class="space-x-5">
-            <TheButton variation="outline">Back</TheButton>
-            <TheButton >Buy</TheButton>
+            <TheButton variation="outline" v-step="'form'">Back</TheButton>
+            <TheButton v-step="'start'">Buy</TheButton>
         </div>
     </section>
 </template>
@@ -20,6 +20,7 @@
 import TheHeader from '../../atoms/text/TheHeader.vue';
 import TheText from '../../atoms/text/TheText.vue';
 import TheButton from '../../atoms/TheButton.vue';
+import {vStep} from '../../../directives/step'
 
 </script>
 

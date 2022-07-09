@@ -16,8 +16,8 @@
                 <p>Your premium is: 500KHD</p>
 
                 <div class="space-x-5">
-                    <TheButton variation="outline">Back</TheButton>
-                    <TheButton v-step="'error'">Next</TheButton>
+                    <TheButton v-step="'start'" variation="outline">Back</TheButton>
+                    <TheButton v-step="'summary'">Next</TheButton>
                 </div>
             </div>
            </div>
@@ -38,6 +38,7 @@ const radioOptions:selectOptionType[] = [
     {value:"Standard",label:"Standard"},
     {value:"Premium",label:"Premium"},
 ]
+
 
 
 </script>

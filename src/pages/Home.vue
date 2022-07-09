@@ -29,8 +29,8 @@ const _component = computed(() => {
     }
 });
 
-function step(v: pageType) {
-    console.log('stepping v',v.);
+function step(e: CustomEvent<pageType>) {
+    current.value = e.detail;
 }
 
 </script>

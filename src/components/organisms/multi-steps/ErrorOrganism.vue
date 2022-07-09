@@ -3,7 +3,7 @@
         <TheHeader >Ooops!</TheHeader>
         <TheText> Your age is over our accepted limit </TheText>
         <TheText> We are sorry but we can not insure you now </TheText>
-        <TheButton > Ok :( </TheButton>  
+        <TheButton v-step="'start'"> Ok :( </TheButton>  
     </section>
 </template>
 
@@ -11,5 +11,6 @@
 import TheHeader from '../../atoms/text/TheHeader.vue';
 import TheText from '../../atoms/text/TheText.vue';
 import TheButton from '../../atoms/TheButton.vue';
+import {vStep} from '../../../directives/step'
 
 </script>
