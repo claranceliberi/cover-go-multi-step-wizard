@@ -4,10 +4,10 @@
             <div class="flex justify-center">
                 <div class="w-[20rem]">
                 <TheHeader>Tell us about your self</TheHeader>
-                <InputMolecule placeholder="John Doe">Name</InputMolecule>
-                <InputMolecule placeholder="30" type="number">Age</InputMolecule>
-                <SelectMolecule placeholder="select country" :options="radioOptions">where do you live</SelectMolecule>
-                <RadioMolecule :options="radioOptions" name="option"/>
+                <InputMolecule v-model="data.name" placeholder="John Doe">Name</InputMolecule>
+                <InputMolecule  v-model="data.age" placeholder="30" type="number">Age</InputMolecule>
+                <SelectMolecule v-model="data.country" placeholder="select country" :options="radioOptions">where do you live</SelectMolecule>
+                <RadioMolecule  v-model="data.package" :options="radioOptions" name="option"/>
             </div>
 
             </div>
@@ -32,13 +32,28 @@ import SelectMolecule from '../../molecules/input/SelectMolecule.vue';
 import RadioMolecule from '../../molecules/input/RadioMolecule.vue';
 import TheButton from '../../atoms/TheButton.vue';
 import {vStep} from '../../../directives/step'
+import { reactive,inject, watch } from 'vue';
+import {key} from '../../../constants/constants'
 
+const injected = inject<ProvideType>(key)
+
+
+const data = reactive<IInformation>({
+    name:'',
+    age:0,
+    country:'',
+    package:'',
+
+})
 
 const radioOptions:selectOptionType[] = [
     {value:"Standard",label:"Standard"},
     {value:"Premium",label:"Premium"},
 ]
 
+watch(data,()=>{
+    injected?.updateInfo(data)
+})
 
 
 </script>

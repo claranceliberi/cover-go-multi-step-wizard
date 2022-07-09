@@ -9,16 +9,20 @@
     interface IPropsSelect {
         type:string,
         placeholder:string,
+        modelValue:string | number,
         name:string,
         id:string,
         options:selectOptionType[],
         [key:string]:any,
     }
 
+    type emitsTypes = {
+        (e:'update:modelValue',value:string):void,
+    }
 
     const props = withDefaults(defineProps<IPropsSelect>(),{
         type:'text',
     });
 
- 
+    const emits = defineEmits<emitsTypes>();
 </script>

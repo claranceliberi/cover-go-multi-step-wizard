@@ -8,9 +8,9 @@
 import StartOrganism from '../components/organisms/multi-steps/StartOrganism.vue';
 import FormOrganism from '../components/organisms/multi-steps/FormOrganism.vue';
 import SummaryOrganism from '../components/organisms/multi-steps/SummaryOrganism.vue';
-import { ref, computed } from 'vue';
+import { ref, computed,reactive,provide } from 'vue';
 import ErrorOrganism from '../components/organisms/multi-steps/ErrorOrganism.vue';
-
+import {key} from '../constants/constants'
 
 const current = ref<pageType>('form');
 
@@ -29,9 +29,30 @@ const _component = computed(() => {
     }
 });
 
+const info = reactive<IInformation>({
+    name:'',
+    age:0,
+    country:'',
+    package:'',
+
+})
+
+function updateInfo(_info:IInformation){
+    console.log(_info)
+    info.name = _info.name;
+    info.age = _info.age;
+    info.country = _info.country;
+    info.package = _info.package;
+}
+
 function step(e: CustomEvent<pageType>) {
     current.value = e.detail;
 }
+
+provide(key,{
+    info,
+    updateInfo
+})
 
 </script>
 
