@@ -6,26 +6,13 @@
 </template>
 
 <script lang="ts" setup>
-    type optionType = {
-        value:string,
-        label:string,
-    }
 
-    interface IProps {
-        type:string,
-        placeholder:string,
-        modelValue:string | number,
-        name:string,
-        id:string,
-        options:optionType[],
-        [key:string]:any,
-    }
 
     type emitsTypes = {
         (e:'update:modelValue',value:string):void,
     }
 
-    const props = withDefaults(defineProps<IProps>(),{
+    const props = withDefaults(defineProps<IPropsSelect>(),{
         type:'text',
     });
 

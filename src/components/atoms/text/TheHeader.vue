@@ -1,5 +1,5 @@
 <template>
-    <h2 v-once v-bind="props">
+    <h2 v-once v-bind="props" class=" font-bold text-2xl">
         <slot></slot>
     </h2>
 </template>
@@ -10,6 +10,6 @@ from h1,h2,h3 but for this case, I think it's better to use h2 for this case i d
     interface IProps{
         [key:string]:any,
     }
-    const props = withDefaults(defineProps<IProps>(),{});
+    const props = defineProps<IProps>();
 
 </script>

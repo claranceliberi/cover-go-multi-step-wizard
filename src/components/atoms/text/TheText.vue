@@ -8,6 +8,6 @@
     interface IProps{
         [key:string]:any,
     }
-    const props = withDefaults(defineProps<IProps>(),{});
+    const props = defineProps<IProps>();
 
 </script>

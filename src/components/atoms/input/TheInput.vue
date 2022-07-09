@@ -4,21 +4,11 @@
 
 <script lang="ts" setup>
 
-    interface IProps {
-        type:string,
-        value:string,
-        placeholder:string,
-        modelValue:string | number,
-        name:string,
-        id:string,
-        [key:string]:any,
-    }
-
     type emitsTypes = {
         (e:'update:modelValue',value:string):void,
     }
 
-    const props = withDefaults(defineProps<IProps>(),{
+    const props = withDefaults(defineProps<IPropsInput>(),{
         type:'text',
     });
 
