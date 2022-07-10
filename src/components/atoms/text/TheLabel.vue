@@ -1,7 +1,7 @@
 <template>
-  <label v-bind="props">
+  <label5 class="capitalize font-medium" v-bind="props">
     <slot></slot>
-  </label>
+  </label5>
 </template>
 
 <script lang="ts" setup>

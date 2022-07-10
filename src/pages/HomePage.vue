@@ -14,7 +14,7 @@
   import ErrorOrganism from '../components/organisms/multi-steps/ErrorOrganism.vue'
   import { key } from '../constants/constants'
 
-  const current = ref<pageType>('form')
+  const current = ref<pageType>('summary')
 
   // component renderer
   const _component = computed(() => {

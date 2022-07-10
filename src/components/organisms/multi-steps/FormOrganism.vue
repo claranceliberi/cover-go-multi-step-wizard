@@ -1,7 +1,7 @@
 <template>
   <section class="w-[40rem]">
     <div class="flex justify-center">
-      <div class="w-[20rem]">
+      <div class="w-[20rem] space-y-4 mb-4">
         <TheHeader>Tell us about your self</TheHeader>
         <InputMolecule v-model="data.name" placeholder="John Doe"
           >Name</InputMolecule
@@ -15,15 +15,16 @@
           placeholder="select country"
           >where do you live</SelectMolecule
         >
+      </div>
+    </div>
+    <div class="py-8 px-4 bg-slate-100 flex justify-center">
+      <div class="w-[20rem] space-y-8">
         <RadioMolecule
           v-model="data.package"
           :options="packages"
           name="option"
         />
-      </div>
-    </div>
-    <div class="py-8 px-4 bg-slate-100 flex justify-center">
-      <div class="w-[20rem]">
+
         <p>Your premium is: {{ ammount(data.package) }} {{ currency }}</p>
 
         <div class="space-x-5">
@@ -90,6 +91,7 @@
     }
   })
 
+  // packages with calculated discounts
   const packages = computed<SelectionType<packageType>[]>(() => {
     return [
       { value: 'Standard', label: 'Standard' },
@@ -108,6 +110,7 @@
     ]
   })
 
+  // function to calculate ammount
   function ammount(_package: packageType): number {
     let amt = data.age * 10
     amt = amt * rates[currency.value] // apply curracy rates
@@ -125,5 +128,3 @@
     injected?.updatePremium(ammount(data.package) + ' ' + currency.value)
   })
 </script>
-
-<style scoped></style>
