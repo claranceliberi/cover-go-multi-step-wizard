@@ -1,6 +1,8 @@
 <template>
     <article class="text-gray-900 flex justify-center flex-wrap mt-20">
-        <component :is="_component" @step="step"></component>
+        <Transition mode="out-in" appear>
+            <component :is="_component" @step="step" ></component>
+        </Transition>
     </article>
 </template>
 
@@ -34,12 +36,10 @@ const info = reactive<IInformation>({
     name:'',
     age:0,
     country:'',
-    package:'',
-
+    package:'Standard',
 })
 
 function updateInfo(_info:IInformation){
-    console.log(_info)
     info.name = _info.name;
     info.age = _info.age;
     info.country = _info.country;
@@ -48,17 +48,37 @@ function updateInfo(_info:IInformation){
 
 // listen to step change and change active screen
 function step(e: CustomEvent<pageType>) {
+
+    if( info.age > 100 && current.value === 'form'){
+        current.value = 'error';
+        return;
+    }
+
     current.value = e.detail;
+}
+
+function updatePremium(premium:string){
+    info.premium = premium;
 }
 
 // pass data to other components
 provide(key,{
     info,
-    updateInfo
+    updateInfo,
+    updatePremium,
 })
 
 </script>
 
 <style scoped>
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease-in;
+}
 
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 </style>

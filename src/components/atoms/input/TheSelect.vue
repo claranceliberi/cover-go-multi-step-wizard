@@ -1,7 +1,7 @@
 <template>
-<select v-bind="props"  @input="emits('update:modelValue',($event.target as HTMLInputElement).value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none">
+<select v-bind="{name:props.name,id:props.id,placeholder:props.placeholder}"  @input="emits('update:modelValue',($event.target as HTMLInputElement).value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none">
     <option> {{props.placeholder}} </option>
-    <option v-for="(opt,i) in props.options" :key="i" :value="opt.value"> {{opt.label}} </option>
+    <option v-for="(opt,i) in props.options" :selected="i==0" :key="i" :value="opt.value"> {{opt.label}} </option>
 </select>
 </template>
 
@@ -11,7 +11,7 @@
         modelValue?:string | number,
         name?:string,
         id?:string,
-        options?:selectOptionType[],
+        options?:SelectionType[],
         [key:string]:any,
     }
 

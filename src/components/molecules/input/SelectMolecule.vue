@@ -3,7 +3,7 @@
         <TheLabel>
             <slot></slot>
         </TheLabel>
-        <TheSelect v-bind="{name:props.name,type:props.type,id:props.id,placeholder:props.placeholder}" :options="props.options" @update:model-value="emits('update:modelValue',$event)"/>
+        <TheSelect v-bind="{name:props.name,id:props.id,placeholder:props.placeholder}" :options="props.options" @update:model-value="emits('update:modelValue',$event)"/>
     </div>
 </template>
 
@@ -17,7 +17,7 @@ import TheLabel from '../../atoms/text/TheLabel.vue';
         modelValue?:string | number,
         name?:string,
         id?:string,
-        options?:selectOptionType[],
+        options?:SelectionType[],
         [key:string]:any,
     }
 

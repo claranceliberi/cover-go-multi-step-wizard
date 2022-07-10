@@ -31,7 +31,6 @@ import TheLabel from '../../atoms/text/TheLabel.vue';
     const emits = defineEmits<emitsTypes>();
 
     function input($event:string){
-        console.log('old:',props.modelValue,'new:',$event)
         emits('update:modelValue',$event)
     }
 </script>

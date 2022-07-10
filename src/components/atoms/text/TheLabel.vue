@@ -1,5 +1,5 @@
 <template>
-    <label v-once v-bind="props">
+    <label v-memo v-bind="props">
         <slot></slot>
     </label>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <button  v-once v-bind="props" @click="emits('click',$event)" class="px-10 py-2  rounded-sm" :class="classes">
+    <button  v-memo @click="emits('click',$event)" class="px-10 py-2  rounded-sm disabled:opacity-60 " :class="classes">
         <slot></slot>
     </button>
 </template>
@@ -10,8 +10,6 @@
         type?:'button' | 'submit' | 'reset',
         variation?:'fill' | 'outline'
         fullWidth?:boolean,
-        
-        [key:string]:any,
     }
     const props = withDefaults(defineProps<IProps>(),{
         type:"button",
