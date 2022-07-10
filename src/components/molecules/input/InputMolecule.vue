@@ -3,7 +3,7 @@
         <TheLabel>
             <slot></slot>
         </TheLabel>
-        <TheInput v-bind="props" @update:model-value="emits('update:modelValue',e)"/>
+        <TheInput v-bind="{name:props.name,type:props.type,id:props.id,placeholder:props.placeholder}"  :modelValue="props.modelValue" @update:modelValue="input"/>
     </div>
 </template>
 
@@ -11,12 +11,12 @@
 import TheInput from '../../atoms/input/TheInput.vue';
 import TheLabel from '../../atoms/text/TheLabel.vue';
     interface IPropsInput {
-        type:string,
-        value:string,
-        placeholder:string,
-        modelValue:string | number,
-        name:string,
-        id:string,
+        type?:string,
+        value?:string,
+        placeholder?:string,
+        modelValue?:string | number,
+        name?:string,
+        id?:string,
         [key:string]:any,
     }
 
@@ -29,4 +29,9 @@ import TheLabel from '../../atoms/text/TheLabel.vue';
     });
 
     const emits = defineEmits<emitsTypes>();
+
+    function input($event:string){
+        console.log('old:',props.modelValue,'new:',$event)
+        emits('update:modelValue',$event)
+    }
 </script>

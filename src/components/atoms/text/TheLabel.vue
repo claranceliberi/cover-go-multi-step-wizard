@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
     interface IProps{
-        for:string,
+        for?:string,
         [key:string]:any,
     }
     const props = withDefaults(defineProps<IProps>(),{

@@ -14,6 +14,7 @@ import {key} from '../constants/constants'
 
 const current = ref<pageType>('form');
 
+// component renderer
 const _component = computed(() => {
     switch (current.value) {
         case 'start':
@@ -45,10 +46,12 @@ function updateInfo(_info:IInformation){
     info.package = _info.package;
 }
 
+// listen to step change and change active screen
 function step(e: CustomEvent<pageType>) {
     current.value = e.detail;
 }
 
+// pass data to other components
 provide(key,{
     info,
     updateInfo

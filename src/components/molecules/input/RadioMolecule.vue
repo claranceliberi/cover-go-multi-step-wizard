@@ -4,7 +4,7 @@
             <slot></slot>
         </TheLabel>
         <div v-for="(opt,i) in props.options" :key="i" class="flex items-center space-x-2">
-            <TheInput v-bind="props" :id="`${$.uid}-${opt.value}`" :value="opt.value"  @update:model-value="emits('update:modelValue',e)" type="radio"/>
+            <TheInput v-bind="{name:props.name,type:props.type,id:props.id,placeholder:props.placeholder}" :id="`${$.uid}-${opt.value}`" :value="opt.value"  @update:model-value="emits('update:modelValue',$event)" type="radio"/>
             <TheLabel :for="`${$.uid}-${opt.value}`"> {{opt.label}} </TheLabel>
         </div>
     </div>
@@ -16,12 +16,12 @@ import TheLabel from '../../atoms/text/TheLabel.vue';
 
 
     interface IPropsSelect {
-        type:string,
-        placeholder:string,
-        modelValue:string | number,
-        name:string,
-        id:string,
-        options:selectOptionType[],
+        type?:string,
+        placeholder?:string,
+        modelValue?:string | number,
+        name?:string,
+        id?:string,
+        options?:selectOptionType[],
         [key:string]:any,
     }
 

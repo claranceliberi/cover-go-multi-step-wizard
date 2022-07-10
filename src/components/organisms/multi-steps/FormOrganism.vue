@@ -32,11 +32,13 @@ import SelectMolecule from '../../molecules/input/SelectMolecule.vue';
 import RadioMolecule from '../../molecules/input/RadioMolecule.vue';
 import TheButton from '../../atoms/TheButton.vue';
 import {vStep} from '../../../directives/step'
-import { reactive,inject, watch } from 'vue';
+import { reactive,inject, watch, ref } from 'vue';
 import {key} from '../../../constants/constants'
 
+// get data injected from parent component
 const injected = inject<ProvideType>(key)
 
+    const sample = ref('')
 
 const data = reactive<IInformation>({
     name:'',
@@ -51,6 +53,7 @@ const radioOptions:selectOptionType[] = [
     {value:"Premium",label:"Premium"},
 ]
 
+// data changes ,  send the updated data to the parent component
 watch(data,()=>{
     injected?.updateInfo(data)
 })

@@ -7,9 +7,9 @@
 <script lang="ts" setup>import { ref } from 'vue';
 
     interface IProps{
-        type:'button' | 'submit' | 'reset',
-        variation:'fill' | 'outline'
-        fullWidth:boolean,
+        type?:'button' | 'submit' | 'reset',
+        variation?:'fill' | 'outline'
+        fullWidth?:boolean,
         
         [key:string]:any,
     }

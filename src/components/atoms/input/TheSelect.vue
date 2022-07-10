@@ -7,12 +7,11 @@
 
 <script lang="ts" setup>
     interface IPropsSelect {
-        type:string,
-        placeholder:string,
-        modelValue:string | number,
-        name:string,
-        id:string,
-        options:selectOptionType[],
+        placeholder?:string,
+        modelValue?:string | number,
+        name?:string,
+        id?:string,
+        options?:selectOptionType[],
         [key:string]:any,
     }
 
@@ -21,8 +20,9 @@
     }
 
     const props = withDefaults(defineProps<IPropsSelect>(),{
-        type:'text',
+        placeholder:'Select an option',
     });
+
 
     const emits = defineEmits<emitsTypes>();
 </script>
