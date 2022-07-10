@@ -1,4 +1,4 @@
-import { Directive, onUnmounted } from 'vue';
+import { Directive } from 'vue';
 
 function event<T>(name:string,data:T){
     return new CustomEvent<T>(name, {detail: data, bubbles: true})
