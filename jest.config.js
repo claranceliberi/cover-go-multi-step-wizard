@@ -1,8 +1,8 @@
 module.exports = {
-    moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
-    testEnvironment: 'jsdom',
-    transform: {
-      '^.+\\.ts$': 'ts-jest',
-      '^.+\\.vue$': '@vue/vue3-jest',
-    },
-  }
+  moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
+  testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.ts$': 'ts-jest',
+    '^.+\\.vue$': '@vue/vue3-jest',
+  },
+}

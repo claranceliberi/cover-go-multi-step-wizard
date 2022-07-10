@@ -1,13 +1,5 @@
 <template>
-    <p v-once v-bind="props">
-        <slot></slot>
-    </p>
+  <p v-once v-bind="$attrs">
+    <slot></slot>
+  </p>
 </template>
-
-<script lang="ts" setup>
-    interface IProps{
-        [key:string]:any,
-    }
-    const props = defineProps<IProps>();
-
-</script>
