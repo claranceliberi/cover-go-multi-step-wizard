@@ -1,7 +1,8 @@
 <template>
     <section class="w-[40rem] bg-slate-100 flex flex-col items-center">
         <TheHeader>Summary</TheHeader>
-        ${name}
+        
+        <h3>{{injected?.info.name}}</h3>
         
         <TheText>Name :  {{injected?.info.name}}</TheText>
         <TheText>Age : {{injected?.info.age}}</TheText>
