@@ -4,7 +4,7 @@
             <slot></slot>
         </TheLabel>
         <div v-for="(opt,i) in props.options" :key="i" class="flex items-center space-x-2">
-            <TheInput :checked="i==0"  v-bind="{name:props.name,type:props.type,id:props.id,placeholder:props.placeholder}" :id="`${$.uid}-${opt.value}`" :value="opt.value"  @update:model-value="emits('update:modelValue',$event)" type="radio"/>
+            <TheInput :checked="i==0"  v-bind="{name:props.name,type:props.type,id:props.id,placeholder:props.placeholder}" :data-test="opt.value" :id="`${$.uid}-${opt.value}`" :value="opt.value"  @update:model-value="emits('update:modelValue',$event)" type="radio"/>
             <TheLabel :for="`${$.uid}-${opt.value}`"> {{opt.label}} </TheLabel>
         </div>
     </div>
